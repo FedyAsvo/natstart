@@ -1,0 +1,913 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  color: #3F3F3F;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ===== HEADER ===== */
+.lang-toggle {
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3F3F3F;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lang-toggle:hover {
+  opacity: 0.6;
+}
+
+.header-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+
+.header-top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+  z-index: 10;
+  color: #3F3F3F;
+}
+
+.header-top::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background: #3F3F3F;
+}
+
+.header-left {
+  justify-self: start;
+}
+
+.header-right {
+  justify-self: end;
+}
+
+.logo {
+  font-family: Manrope, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: #3F3F3F;
+}
+
+/* ===== PROJECTS PREVIEW ===== */
+
+.projects-preview {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  margin-top: 105px; /* ровно 45px до верха центрального */
+}
+
+/* БАЗА */
+.projects-preview img {
+  width: 300px;
+  height: auto;
+  display: block;
+  position: relative;
+  background: #fff;
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.22),
+    0 4px 8px rgba(0, 0, 0, 0.10);
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+
+/* ЛЕВОЕ — ФОН */
+.projects-preview img:nth-child(1) {
+  margin-right: -20px;
+  z-index: 1;
+  transform: translateY(-30px);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.24),
+    0 3px 6px rgba(0, 0, 0, 0.14);
+}
+
+/* ЦЕНТР — ГЛАВНЫЙ */
+.projects-preview img:nth-child(2) {
+  width: 360px;
+  z-index: 3;
+  transform: translateY(-60px);
+  box-shadow:
+    0 18px 28px rgba(0, 0, 0, 0.28),
+    0 6px 12px rgba(0, 0, 0, 0.14);
+} 
+
+/* ПРАВОЕ — АКЦЕНТ */
+.projects-preview img:nth-child(3) {
+  margin-left: -20px;
+  z-index: 2;
+  transform: translateY(-30px);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.24),
+    0 3px 6px rgba(0, 0, 0, 0.14);
+}
+
+/* ===== HOVER ===== */
+
+/* общий hover — только тень */
+.projects-preview img:hover {
+  box-shadow:
+    0 20px 32px rgba(0, 0, 0, 0.26),
+    0 8px 16px rgba(0, 0, 0, 0.14);
+}
+
+/* боковые */
+.projects-preview img:nth-child(1):hover {
+  transform: translateY(-38px);
+  z-index: 2;
+}
+
+.projects-preview img:nth-child(3):hover {
+  transform: translateY(-38px);
+  z-index: 2;
+}
+
+/* центр */
+.projects-preview img:nth-child(2):hover {
+  transform: translateY(-70px);
+  z-index: 4;
+  box-shadow:
+    0 36px 72px rgba(0, 0, 0, 0.28),
+    0 14px 28px rgba(0, 0, 0, 0.14);
+}
+
+.projects-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.projects-btn {
+  font-family: Manrope, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #3F3F3F;
+  padding: 6px 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+/* ОДИН слой: линия → заливка */
+.projects-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;              /* сначала линия */
+  background: #3F3F3F;
+  z-index: -1;              /* ВСЕГДА под текстом */
+  transition: height 0.35s ease;
+}
+
+/* hover / active */
+.projects-btn:hover::before,
+.projects-btn:active::before {
+  height: 100%;             /* растёт вверх */
+}
+
+.projects-btn:hover,
+.projects-btn:active {
+  color: #fff;              /* текст белый */
+}
+
+/* ===== PHILOSOPHY FRAME ===== */
+
+.philosophy {
+  margin-top: 45px;
+}
+
+/* Заголовок */
+.philosophy-title {
+  font-family: Manrope, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* Подзаголовок */
+.philosophy-lead {
+  font-family: Inter, sans-serif;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Основной текст */
+.philosophy-text {
+  font-family: Inter, sans-serif;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+/* ===== ИЗОБРАЖЕНИЯ ФРЕЙМА 2 ===== */
+
+.philosophy-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 22px;
+}
+
+.philosophy-images img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* ===== FRAME 3 / ФИЛОСОФИЯ ===== */
+
+.philosophy-frame3 {
+  margin-top: 45px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* основной текст */
+.philosophy-text-wide {
+  max-width: 820px;
+  margin-bottom: 22px;
+  text-align: left;
+  font-family: Inter, sans-serif;
+  color: #3F3F3F;
+}
+
+
+/* пункты под словом ЖИВОЕ */
+.philosophy-points p {
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  margin-bottom: 22px;
+  text-align: left;
+  color: #3F3F3F;
+}
+/* горизонтальная линия как в шапке */
+
+.philosophy-divider {
+  position: relative;
+  height: 1px;
+  margin: 18px 0;
+}
+
+.philosophy-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background: #3F3F3F;
+}
+
+/* слово ЖИВОЕ (SVG) */
+.philosophy-word {
+  margin: 32px 0;
+}
+
+.philosophy-word img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* смысловые пункты */
+.philosophy-points {
+  max-width: 560px;
+}
+
+.philosophy-points p {
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  margin-bottom: 22px;
+  text-align: left;
+  color: #3F3F3F;
+}
+
+.philosophy-points p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== FRAME 3 / ФИЛОСОФИЯ ===== */
+
+.philosophy-frame3 {
+  margin-top: 45px;
+}
+
+/* основной текст */
+.philosophy-text-wide {
+  max-width: 820px;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+/* ===== ГОРИЗОНТАЛЬНАЯ ЛИНИЯ (как в шапке) ===== */
+
+.philosophy-divider {
+  position: relative;
+  height: 1px;
+  margin: 22px 0;
+}
+
+.philosophy-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background: #3F3F3F;
+}
+
+
+/* ===== SVG ЖИВОЕ ===== */
+
+.philosophy-word {
+  display: flex;
+  justify-content: center;
+  margin: 22px 0;
+}
+
+.philosophy-word img {
+  display: block;
+  width: 100%;
+  max-width: 1240px; /* 1320 - 40*2 */
+  height: auto;
+}
+
+/* ===== ПУНКТЫ "ЖИВОЕ" ===== */
+
+.philosophy-item {
+  padding: 22px 0;
+}
+
+.philosophy-item p {
+  margin: 0;
+}
+
+
+/* линия ПОСЛЕ каждого пункта */
+.philosophy-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+
+  /* ключевые строки */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+
+  height: 1px;
+  background: #3F3F3F;
+}
+
+/* ===== LIST "ЖИВОЕ" ===== */
+
+.philosophy-list {
+  margin-top: 22px;
+}
+
+/* линия — КАК В ШАПКЕ */
+.philosophy-line {
+  position: relative;
+  height: 1px;
+}
+
+.philosophy-line::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background: #3F3F3F;
+}
+
+
+/* один блок текста */
+.philosophy-item {
+  padding: 18px 0; /* ← ПЛОТНЕЕ, как на рефе */
+}
+
+/* основной текст */
+.philosophy-item p {
+  margin: 0;
+  font-size: 13px;
+  color: #3F3F3F;
+}
+
+/* дополнительный текст */
+.philosophy-subtext {
+  margin-top: 18px;
+  opacity: 0.9;
+}
+/* ===== FRAME 4 / WORKS ===== */
+
+.works {
+  margin-top: 45px; /* ← РОВНО как ты просил */
+}
+
+.works-title {
+  font-family: Manrope, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  color: #3F3F3F;
+}
+
+/* сетка всего блока */
+.works-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 40px;
+}
+
+/* левая большая фотография */
+.works-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  border: 1px solid #3F3F3F; /* обводка */
+}
+
+/* правая сетка 2x2 */
+.works-secondary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.works-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  border: 1px solid #3F3F3F; /* обводка */
+}
+/* ===== FRAME 5 / SIMPLE LAYOUT ===== */
+
+.works-frame-5 {
+  margin-top: 45px;
+}
+
+.works-container-wide {
+  max-width: 1320px; /* как основной container */
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+/* основная сетка */
+.works-grid-simple {
+  display: grid;
+  grid-template-columns: 1.4fr 0.7fr 1.4fr; /* крайние шире */
+  gap: 40px;
+  align-items: center;
+}
+
+
+/* большие изображения */
+.works-item-big img {
+  width: 100%;
+  display: block;
+}
+
+/* колонка с двумя */
+.works-item-column {
+  display: grid;
+  gap: 40px;
+}
+
+.works-item-column img {
+  width: 100%;
+  display: block;
+}
+
+/* общий стиль */
+.works-grid-simple img {
+  border: 1px solid #3F3F3F;
+  background: #fff;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+}
+
+/* hover — аккуратный */
+.works-grid-simple img {
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    filter 0.4s ease;
+}
+
+.works-grid-simple img:hover {
+  transform: scale(1.02);
+  filter: brightness(0.95);
+  box-shadow:
+    0 24px 48px rgba(0,0,0,0.18),
+    0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== FRAME 6 / MATERIALS ===== */
+
+.materials {
+  margin-top: 45px;
+}
+
+.materials-title {
+  font-family: Manrope, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.materials-intro {
+  max-width: 820px;
+}
+
+.materials-intro p {
+  margin-bottom: 18px;
+}
+
+.materials-subtitle {
+  margin-top: 36px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.materials-list {
+  margin-top: 22px;
+}
+
+.materials-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.materials-item h4 {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+}
+
+.materials-lead {
+  margin-bottom: 12px;
+  opacity: 0.85;
+}
+
+.materials-divider {
+  position: relative;
+  height: 1px;
+  margin: 22px 0;
+}
+
+
+.materials-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background: #3F3F3F;
+}
+.materials-subtitle {
+  margin-top: 36px;
+  margin-bottom: 12px; /* ← меньше, чтобы не отрывался */
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* линия сразу под заголовком */
+.materials-divider--tight {
+  margin: 6px 0 20px 0;
+}
+
+
+/* ===== HOVER ===== */
+
+.works img {
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    filter 0.45s ease;
+}
+
+.works img:hover {
+  transform: scale(1.02);
+  filter: brightness(0.95);
+  box-shadow:
+    0 26px 52px rgba(0,0,0,0.18),
+    0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== FRAME 7 / CONTACTS ===== */
+.contacts {
+  background: #E1DDD2;
+  margin-top: 45px;
+
+  padding: 10px 0 60px; /* верх / низ */
+}
+
+
+
+.contacts-inner {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 60px;     /* ключевая строка */
+  gap: 32px;
+}
+
+
+/* верхний текст */
+.contacts-lead {
+  max-width: 720px;
+  text-transform: uppercase;
+
+  /* плотнее */
+  margin-bottom: 12px;
+}
+
+/* сетка контактов */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  /* сближаем колонки */
+  gap: 100px;
+}
+
+/* колонка */
+.contacts-col {
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 28px; /* расстояние между Whatsapp ↔ Email */
+}
+
+
+
+/* подписи */
+.contacts-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.55;
+
+  margin-bottom: 1px; /* почти вплотную */
+}
+
+
+.contacts-value {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  opacity: 1;
+
+  margin-bottom: 5px; /* ← ключевая строка */
+}
+.contact-pair {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ссылки в контактах */
+.contacts-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.contacts-link:hover {
+  opacity: 0.6;
+}
+
+/* кликабельные заголовки соцсетей */
+.contacts-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.contacts-link:hover {
+  opacity: 0.6;
+}
+
+.contacts-col {
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 28px; /* одинаково слева и справа */
+}
+
+/* ===== CONTACTS HOVER ===== */
+
+.contacts a,
+.contacts .contacts-value {
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+/* hover для кликабельных элементов */
+.contacts a:hover,
+.contacts .contacts-value:hover {
+  color: #2f2f2f;
+  opacity: 0.9;
+}
+
+/* === ЕДИНЫЙ ТЕКСТ INTER 13 === */
+
+.philosophy,
+.philosophy p,
+.philosophy-text,
+.philosophy-text-wide,
+.philosophy-item p,
+.philosophy-subtext,
+.philosophy-lead {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  line-height: 1.7;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* =========================
+   MOBILE — CLEAN & SAFE
+========================= */
+@media (max-width: 768px) {
+
+  /* контейнер */
+  .container,
+  .works-container-wide {
+    padding: 0 16px;
+  }
+
+  /* немного крупнее текст */
+  body {
+    font-size: 14px;
+  }
+
+  /* ================= FIRST FRAME ================= */
+
+  .projects-preview {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* скрываем все */
+  .projects-preview img {
+    display: none;
+  }
+
+  /* показываем ТОЛЬКО центральную */
+  .projects-preview img:nth-child(2) {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    margin: 0 auto;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* ================= TEXT ================= */
+
+  .philosophy-title,
+  .works-title,
+  .materials-title {
+    font-size: 24px;
+  }
+
+  .philosophy-text,
+  .philosophy-text-wide,
+  .philosophy-lead {
+    max-width: 100%;
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+  }
+
+  /* ================= WORKS ================= */
+
+  .works-grid,
+  .works-secondary,
+  .works-grid-simple,
+  .materials-row,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .works img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: none;
+    transform: none;
+    filter: none;
+  }
+}
+/* =========================
+   MOBILE — DISABLE HOVER
+   ничего не ломает ПК
+========================= */
+@media (max-width: 768px) {
+
+  /* ВСЕ изображения */
+  img {
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  /* PROJECTS PREVIEW */
+  .projects-preview img:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* WORKS */
+  .works img:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  /* FRAME 5 */
+  .works-grid-simple img:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  /* кнопки */
+  .projects-btn:hover::before {
+    height: 1px !important;
+  }
+
+  .projects-btn:hover {
+    color: #3F3F3F !important;
+  }
+}
+/* =========================
+   MOBILE — PHILOSOPHY IMAGES FIX
+========================= */
+@media (max-width: 768px) {
+
+  .philosophy-images {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .philosophy-images img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+}
